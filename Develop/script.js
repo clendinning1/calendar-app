@@ -1,3 +1,14 @@
+// TO DO
+// 1. read up how to use (link?) day.js - "Uses a date utility library to work with date and time"
+// 2. current day is displayed at the top of the calendar
+// 3. timeblocks for standard business hours of 9am - 5pm
+// 4, each timeblock is color coded to indicate whether it is in the past, present, or future
+// 5. WHEN I click into a timeblock THEN I can enter an event
+// 6. WHEN I click the save button for that timeblock THEN the text for that event is saved in local storage
+// 7. WHEN I refresh the page THEN the saved events persist
+
+
+
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
