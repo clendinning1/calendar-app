@@ -6,15 +6,17 @@
 
 // label this
 var currentTime = dayjs().format('MMM D, YYYY'); // current time
-var hour9 = $("#hour-9")
-var hour10 = $("hour-10")
-var hour11 = $("hour-11")
-var hour12 = $("hour-12")
+
 const relevantHour = [
-  hour9 = 0,
-  hour10 = 1,
-  hour11 = 0,
-  hour12 = 1
+  hour9 = $("#hour-9"),
+  hour10 = $("hour-10"),
+  hour11 = $("hour-11"),
+  hour12 = $("hour-12"),
+  hour1 = $("hour-1"),
+  hour2 = $("hour-2"),
+  hour3 = $("hour-3"),
+  hour4 = $("hour-4"),
+  hour5 = $("hour-5")
 ];
 
 
