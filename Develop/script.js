@@ -6,10 +6,30 @@
 // 7. WHEN I refresh the page THEN the saved events persist
 
 // varries
-var currentDay = dayjs().format('MMM D, YYYY');
+var currentDay = dayjs().format('MMM D, YYYY'); // current time
+
+// functs
+
+// class changes for past/present/future formatting
+function makePast() {
+  $("#hour-9").addClass("past");
+}
+
+function makePresent() {
+  $("h1").addClass("present");
+}
+
+function makeFuture() {
+  $("h1").addClass("future");
+}
 
 
+
+// funct that runs the big code has to be in jquery so the page can't run it
+// til it hits the jquery call at the bottom of the html
 $(function () {
+
+  makePast();
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
   // local storage. HINT: What does `this` reference in the click listener
@@ -31,6 +51,15 @@ $(function () {
   // if [timeblock time] = this hour, style = class = row time-block present
   // if [timeblock time] = after this hour, style = class = row time-block future
 
+  // PAST CLASS CHANGE
+  // if (timeblock time = hour before currentDay){
+  //  makePast();
+  //} else if (timeblock time = this hour){
+  //   makePresent();
+  //} else {
+  //   makeFuture();
+  //}
+
 
 
   // TODO: Add code to get any user input that was saved in localStorage and set
@@ -41,6 +70,3 @@ $(function () {
   // displays the current day at the top of the screen
   $('#currentDay').text(currentDay);
 });
-
-// FORMATTING IN HTML
-// 
