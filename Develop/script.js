@@ -42,6 +42,8 @@ $(function () {
   // which = an array of hour-9 thorugh hour-5 ??
 
   // functions to set the class
+  // adds correct class for formatting
+  // rmvs other classes for resetting/updating when the time changes
   function makePast() {
     $(relevantHour).removeClass("present");
     $(relevantHour).removeClass("future");
