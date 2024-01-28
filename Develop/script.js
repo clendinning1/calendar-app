@@ -39,8 +39,10 @@ for (let i = 0; i < relevantHour.length; i++) {
     console.log("BEFORE");
   } else if (relevantHour[i] > currentHour) {
     console.log("AFTER");
-  } else {
+  } else if (relevantHour[i] = currentHour) {
     console.log("CURRENT");
+  } else {
+    console.log("NONE");
   }
 }
 
@@ -122,17 +124,6 @@ $(function () {
 
 
 
-  // if statement that sets the class depending on the hour
-  //if (dayjs(relevantHour).isBefore(currentTime, 'hour')) {
-  //  console.log("BEFORE");
-  //  makePast();
-  //} else if (dayjs(relevantHour).isSame(currentTime, 'hour')) {
-  //  console.log("CURRENT");
-  //  makePresent();
-  //} else if (dayjs(relevantHour).isAfter(currentTime, 'hour')) {
-  //  console.log("AFTER");
-  //  makeFuture();
-  //}
 
 
 
