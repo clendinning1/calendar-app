@@ -8,16 +8,42 @@
 var currentTime = dayjs().format('MMM D, YYYY'); // current time
 
 const relevantHour = [
-  hour9 = $("#hour-9"),
-  hour10 = $("hour-10"),
-  hour11 = $("hour-11"),
-  hour12 = $("hour-12"),
-  hour1 = $("hour-1"),
-  hour2 = $("hour-2"),
-  hour3 = $("hour-3"),
-  hour4 = $("hour-4"),
-  hour5 = $("hour-5")
+  hour9Val = 9,
+  hour10Val = 10,
+  hour11Val = 11,
+  hour12Val = 12,
+  hour1Val = 13,
+  hour2Val = 14,
+  hour3Val = 15,
+  hour4Val = 16,
+  hour5Val = 17
 ];
+
+const hourDivs = [
+  hour9Div = $("#hour-9"),
+  hour10Div = $("hour-10"),
+  hour11Div = $("hour-11"),
+  hour12Div = $("hour-12"),
+  hour1Div = $("hour-1"),
+  hour2Div = $("hour-2"),
+  hour3Div = $("hour-3"),
+  hour4Div = $("hour-4"),
+  hour5Div = $("hour-5")
+];
+
+var currentHour = dayjs().hour()
+
+for (let i = 0; i < relevantHour.length; i++) {
+  // i is the placement in the relevantHour array
+  if (relevantHour[i] < currentHour) {
+    console.log("BEFORE");
+  } else if (relevantHour[i] > currentHour) {
+    console.log("AFTER");
+  } else {
+    console.log("CURRENT");
+  }
+}
+
 
 
 
@@ -34,40 +60,40 @@ $(function () {
 
 
 
-  for (let i = 0; i < relevantHour.length; i++) {
-    // functions to set the class
-    // adds correct class for formatting
-    // rmvs other classes for resetting/updating when the time changes
-    function makePast() {
-      $(relevantHour[i]).removeClass("present");
-      $(relevantHour[i]).removeClass("future");
-      $(relevantHour[i]).addClass("past");
-    }
-
-    function makePresent() {
-      $(relevantHour).removeClass("past");
-      $(relevantHour).removeClass("future");
-      $(relevantHour).addClass("present");
-    }
-
-    function makeFuture() {
-      $(relevantHour).removeClass("past");
-      $(relevantHour).removeClass("present");
-      $(relevantHour).addClass("future");
-    }
-
-    // if statement that sets the class depending on the hour
-    if (relevantHour[i] === 0) {
-      console.log("BEFORE (0)");
-      makePast();
-    } else if (relevantHour[i] === 1) {
-      console.log("AFTER (1)");
-      //makeFuture();
-    } else {
-      console.log("ERROR");
-      //makePresent();
-    }
-  }
+  //for (let i = 0; i < relevantHour.length; i++) {
+  //  // functions to set the class
+  //  // adds correct class for formatting
+  //  // rmvs other classes for resetting/updating when the time changes
+  //  function makePast() {
+  //    relevantHour[i].removeClass("present");
+  //    relevantHour[i].removeClass("future");
+  //    relevantHour[i].addClass("past");
+  //  }
+//
+  //  function makePresent() {
+  //    relevantHour.removeClass("past");
+  //    relevantHour.removeClass("future");
+  //    relevantHour.addClass("present");
+  //  }
+//
+  //  function makeFuture() {
+  //    relevantHour.removeClass("past");
+  //    relevantHour.removeClass("present");
+  //    relevantHour.addClass("future");
+  //  }
+//
+  //  // if statement that sets the class depending on the hour
+  //  if (relevantHour[i] === 0) {
+  //    console.log("BEFORE (0)");
+  //    makePast();
+  //  } else if (relevantHour[i] === 1) {
+  //    console.log("AFTER (1)");
+  //    //makeFuture();
+  //  } else {
+  //    console.log("ERROR");
+  //    //makePresent();
+  //  }
+  //}
 
 
 
@@ -93,7 +119,7 @@ $(function () {
   // current hour in 24-hour time?
 
 
-  
+
 
 
   // if statement that sets the class depending on the hour
