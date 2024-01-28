@@ -5,31 +5,17 @@
 // 6. WHEN I click the save button for that timeblock THEN the text for that event is saved in local storage
 // 7. WHEN I refresh the page THEN the saved events persist
 
-// varries
-var currentDay = dayjs().format('MMM D, YYYY'); // current time
+// label this
+var currentTime = dayjs().format('MMM D, YYYY'); // current time
 
-// functs
+
 
 // class changes for past/present/future formatting
-function makePast() {
-  $("#hour-9").addClass("past");
-}
-
-function makePresent() {
-  $("h1").addClass("present");
-}
-
-function makeFuture() {
-  $("h1").addClass("future");
-}
-
 
 
 // funct that runs the big code has to be in jquery so the page can't run it
 // til it hits the jquery call at the bottom of the html
 $(function () {
-
-  makePast();
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
   // local storage. HINT: What does `this` reference in the click listener
@@ -39,26 +25,59 @@ $(function () {
 
 
 
+
+
+
+
   // TODO: Add code to apply the past, present, or future class to each time
   // block by comparing the id to the current hour. HINTS: How can the id
   // attribute of each time-block be used to conditionally add or remove the
   // past, present, and future classes? How can Day.js be used to get the
   // current hour in 24-hour time?
 
+  // if we can get [timeblock time] to apply to all hours, then this code doesn't
+  // need to individually select, right????
+
+  var relevantHour
+  // which = an array of hour-9 thorugh hour-5 ??
+
+  // functions to set the class
+  function makePast() {
+    $(relevantHour).removeClass("present");
+    $(relevantHour).removeClass("future");
+    $(relevantHour).addClass("past");
+  }
+
+  function makePresent() {
+    $(relevantHour).removeClass("past");
+    $(relevantHour).removeClass("future");
+    $(relevantHour).addClass("present");
+  }
+
+  function makeFuture() {
+    $(relevantHour).removeClass("past");
+    $(relevantHour).removeClass("present");
+    $(relevantHour).addClass("future");
+  }
 
 
-  // if [timeblock time] = before this hour, style = class = row time-block past
-  // if [timeblock time] = this hour, style = class = row time-block present
-  // if [timeblock time] = after this hour, style = class = row time-block future
+  // if statement that sets the class depending on the hour
+  if (dayjs(relevantHour).isBefore(currentTime, 'hour')) {
+    console.log("BEFORE");
+    makePast();
+  } else if (dayjs(relevantHour).isSame(currentTime, 'hour')) {
+    console.log("CURRENT");
+    makePresent();
+  } else if (dayjs(relevantHour).isAfter(currentTime, 'hour')) {
+    console.log("AFTER");
+    makeFuture();
+  }
 
-  // PAST CLASS CHANGE
-  // if (timeblock time = hour before currentDay){
-  //  makePast();
-  //} else if (timeblock time = this hour){
-  //   makePresent();
-  //} else {
-  //   makeFuture();
-  //}
+
+
+
+
+
 
 
 
@@ -68,5 +87,5 @@ $(function () {
 
 
   // displays the current day at the top of the screen
-  $('#currentDay').text(currentDay);
+  $('#currentTime').text(currentTime);
 });
