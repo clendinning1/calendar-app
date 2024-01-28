@@ -10,6 +10,7 @@ textarea {
   color: #000000;
   border-left: 1px solid black;
   padding: 10px;
+  cursor: text;
 }
 
 .description {
@@ -51,6 +52,7 @@ textarea {
   border-bottom-right-radius: 15px;
   background-color: #06aed5;
   color: white;
+  cursor: pointer;
 }
 
 .saveBtn i:hover {
