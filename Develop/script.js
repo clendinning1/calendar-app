@@ -1,17 +1,18 @@
 // TO DO
-// 2. current day is displayed at the top of the calendar
 // 3. timeblocks for standard business hours of 9am - 5pm
 // 4, each timeblock is color coded to indicate whether it is in the past, present, or future
 // 5. WHEN I click into a timeblock THEN I can enter an event
 // 6. WHEN I click the save button for that timeblock THEN the text for that event is saved in local storage
 // 7. WHEN I refresh the page THEN the saved events persist
 
-
+// varries
+var currentDay = dayjs().format('MMM D, YYYY');
 
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
 $(function () {
+  $('#currentDay').text(currentDay);
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
   // local storage. HINT: What does `this` reference in the click listener
