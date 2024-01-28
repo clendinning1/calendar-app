@@ -1,5 +1,4 @@
 // TO DO
-// 3. timeblocks for standard business hours of 9am - 5pm
 // 4. each timeblock is color coded to indicate whether it is in the past, present, or future
 // 5. WHEN I click into a timeblock THEN I can enter an event
 // 6. WHEN I click the save button for that timeblock THEN the text for that event is saved in local storage
@@ -12,10 +11,10 @@ var hour10 = $("hour-10")
 var hour11 = $("hour-11")
 var hour12 = $("hour-12")
 const relevantHour = [
-  hour9 = true,
-  hour10 = true,
-  hour11 = false,
-  hour12 = true
+  hour9 === true,
+  hour10 === true,
+  hour11 === false,
+  hour12 === true
 ];
 // no wait
 // if currentTime isBefore 9AM { hour-9 = past }
@@ -26,7 +25,6 @@ const relevantHour = [
 
 
 
-// class changes for past/present/future formatting
 
 
 // funct that runs the big code has to be in jquery so the page can't run it
@@ -37,11 +35,7 @@ $(function () {
   // local storage. HINT: What does `this` reference in the click listener
   // function? How can DOM traversal be used to get the "hour-x" id of the
   // time-block containing the button that was clicked? How might the id be
-  // useful when saving the description in local storage?
-
-
-
-
+  // useful when saving the description in local storage
 
 
 
@@ -68,19 +62,33 @@ $(function () {
       $(relevantHour).addClass("future");
     }
 
-    // if statement that runs the shit
+    // if statement that sets the class depending on the hour
     if (relevantHour[i] === true) {
       console.log("BEFORE (true)");
-      makePast();
+      //makePast();
     } else if (relevantHour[i] === false) {
       console.log("AFTER (false)");
-      makeFuture();
+      //makeFuture();
     } else {
       console.log("ERROR");
-      makePresent();
+      //makePresent();
     }
   }
 
+
+
+// okay, so, why isn't it working?
+// run through what the code does.
+// if arrayitem is true, we write "before (true)", and we run makePast
+// makePast sets the array item's classes
+// soooo let's test that the array item class is working here. holdon.
+// huh. looks like calling the array by index isnt affecting the class. why is that?
+// OHHHHHHH KAY.
+// its bc im CHANGING it to a boolean instead of making the variable also worth a boolean. hmmm.
+// triple equals, then?
+// YEAH OKAY, i needed triple equals!
+
+// okay, but now it's saying that all of the arrayitems are false...why???
 
 
   // TODO: Add code to apply the past, present, or future class to each time
