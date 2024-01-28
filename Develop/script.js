@@ -6,7 +6,7 @@
 
 
 
-// varries
+// varries :3
 var currentDate = dayjs().format('MMM D, YYYY'); // current date; for displaying at the top of the page
 var currentHour = dayjs().hour(); // current hour; for checking against the timeblocks for formatting purposes
 
