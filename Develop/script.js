@@ -1,5 +1,4 @@
 // TO DO
-// 1. read up how to use (link?) day.js - "Uses a date utility library to work with date and time"
 // 2. current day is displayed at the top of the calendar
 // 3. timeblocks for standard business hours of 9am - 5pm
 // 4, each timeblock is color coded to indicate whether it is in the past, present, or future
