@@ -1,13 +1,17 @@
 // TO DO
-// 4. each timeblock is color coded to indicate whether it is in the past, present, or future
 // 5. WHEN I click into a timeblock THEN I can enter an event
 // 6. WHEN I click the save button for that timeblock THEN the text for that event is saved in local storage
 // 7. WHEN I refresh the page THEN the saved events persist
 
-// label this
-var currentTime = dayjs().format('MMM D, YYYY'); // current time
+
+
+
+// varries
+var currentDate = dayjs().format('MMM D, YYYY'); // current date; for displaying at the top of the page
+var currentHour = dayjs().hour(); // current hour; for checking against the timeblocks for formatting purposes
 
 const relevantHour = [
+  // hour values for checking against the current time in the for loop
   hour9Val = 9,
   hour10Val = 10,
   hour11Val = 11,
@@ -20,31 +24,17 @@ const relevantHour = [
 ];
 
 const hourDivs = [
+  // hour div locations
   hour9Div = $("#hour-9"),
-  hour10Div = $("hour-10"),
-  hour11Div = $("hour-11"),
-  hour12Div = $("hour-12"),
-  hour1Div = $("hour-1"),
-  hour2Div = $("hour-2"),
-  hour3Div = $("hour-3"),
-  hour4Div = $("hour-4"),
-  hour5Div = $("hour-5")
+  hour10Div = $("#hour-10"),
+  hour11Div = $("#hour-11"),
+  hour12Div = $("#hour-12"),
+  hour1Div = $("#hour-1"),
+  hour2Div = $("#hour-2"),
+  hour3Div = $("#hour-3"),
+  hour4Div = $("#hour-4"),
+  hour5Div = $("#hour-5")
 ];
-
-var currentHour = dayjs().hour()
-
-for (let i = 0; i < relevantHour.length; i++) {
-  // i is the placement in the relevantHour array
-  if (relevantHour[i] < currentHour) {
-    console.log("BEFORE");
-  } else if (relevantHour[i] > currentHour) {
-    console.log("AFTER");
-  } else if (relevantHour[i] = currentHour) {
-    console.log("CURRENT");
-  } else {
-    console.log("NONE");
-  }
-}
 
 
 
@@ -61,66 +51,44 @@ $(function () {
 
 
 
+  // TIMEBLOCK FORMATTING
+  for (let i = 0; i < relevantHour.length; i++) {
+    // i is the placement in the relevantHour array
 
-  //for (let i = 0; i < relevantHour.length; i++) {
-  //  // functions to set the class
-  //  // adds correct class for formatting
-  //  // rmvs other classes for resetting/updating when the time changes
-  //  function makePast() {
-  //    relevantHour[i].removeClass("present");
-  //    relevantHour[i].removeClass("future");
-  //    relevantHour[i].addClass("past");
-  //  }
-//
-  //  function makePresent() {
-  //    relevantHour.removeClass("past");
-  //    relevantHour.removeClass("future");
-  //    relevantHour.addClass("present");
-  //  }
-//
-  //  function makeFuture() {
-  //    relevantHour.removeClass("past");
-  //    relevantHour.removeClass("present");
-  //    relevantHour.addClass("future");
-  //  }
-//
-  //  // if statement that sets the class depending on the hour
-  //  if (relevantHour[i] === 0) {
-  //    console.log("BEFORE (0)");
-  //    makePast();
-  //  } else if (relevantHour[i] === 1) {
-  //    console.log("AFTER (1)");
-  //    //makeFuture();
-  //  } else {
-  //    console.log("ERROR");
-  //    //makePresent();
-  //  }
-  //}
+    // functions for changing the class formatting of each timeblock
+    // adds the correct class and removes the other two for resetting/changing purposes
+    function makePast() {
+      hourDivs[i].removeClass("present");
+      hourDivs[i].removeClass("future");
+      hourDivs[i].addClass("past");
+    }
 
+    function makePresent() {
+      hourDivs[i].removeClass("past");
+      hourDivs[i].removeClass("future");
+      hourDivs[i].addClass("present");
+    }
 
+    function makeFuture() {
+      hourDivs[i].removeClass("past");
+      hourDivs[i].removeClass("present");
+      hourDivs[i].addClass("future");
+    }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  // TODO: Add code to apply the past, present, or future class to each time
-  // block by comparing the id to the current hour. HINTS: How can the id
-  // attribute of each time-block be used to conditionally add or remove the
-  // past, present, and future classes? How can Day.js be used to get the
-  // current hour in 24-hour time?
-
-
+    // if statement checks the value of the current hour against each div's hour value + changes the class accordingly
+    if (relevantHour[i] < currentHour) {
+      console.log("BEFORE");
+      makePast();
+    } else if (relevantHour[i] > currentHour) {
+      console.log("AFTER");
+      makePresent();
+    } else if (relevantHour[i] = currentHour) {
+      console.log("CURRENT");
+      makeFuture();
+    } else {
+      console.log("NONE");
+    }
+  }
 
 
 
@@ -138,6 +106,19 @@ $(function () {
   // attribute of each time-block be used to do this?
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
   // displays the current day at the top of the screen
-  $('#currentTime').text(currentTime);
+  $('#currentDate').text(currentDate);
 });
