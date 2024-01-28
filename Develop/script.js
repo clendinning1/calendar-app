@@ -13,17 +13,9 @@ var hour12 = $("hour-12")
 const relevantHour = [
   hour9 === true,
   hour10 === true,
-  hour11 === false,
+  hour11 === true,
   hour12 === true
 ];
-// no wait
-// if currentTime isBefore 9AM { hour-9 = past }
-// else if currentTime isAfter 9AM { hour-9 = future }
-// should i be doing it by hour instead?
-// try to make the relevantHour varry work, if not do this way
-
-
-
 
 
 
@@ -75,20 +67,6 @@ $(function () {
     }
   }
 
-
-
-// okay, so, why isn't it working?
-// run through what the code does.
-// if arrayitem is true, we write "before (true)", and we run makePast
-// makePast sets the array item's classes
-// soooo let's test that the array item class is working here. holdon.
-// huh. looks like calling the array by index isnt affecting the class. why is that?
-// OHHHHHHH KAY.
-// its bc im CHANGING it to a boolean instead of making the variable also worth a boolean. hmmm.
-// triple equals, then?
-// YEAH OKAY, i needed triple equals!
-
-// okay, but now it's saying that all of the arrayitems are false...why???
 
 
   // TODO: Add code to apply the past, present, or future class to each time
