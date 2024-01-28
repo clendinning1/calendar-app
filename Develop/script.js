@@ -11,10 +11,10 @@ var hour10 = $("hour-10")
 var hour11 = $("hour-11")
 var hour12 = $("hour-12")
 const relevantHour = [
-  hour9 === true,
-  hour10 === true,
-  hour11 === true,
-  hour12 === true
+  hour9 = 0,
+  hour10 = 1,
+  hour11 = 0,
+  hour12 = 1
 ];
 
 
@@ -55,17 +55,32 @@ $(function () {
     }
 
     // if statement that sets the class depending on the hour
-    if (relevantHour[i] === true) {
-      console.log("BEFORE (true)");
-      //makePast();
-    } else if (relevantHour[i] === false) {
-      console.log("AFTER (false)");
+    if (relevantHour[i] === 0) {
+      console.log("BEFORE (0)");
+      makePast();
+    } else if (relevantHour[i] === 1) {
+      console.log("AFTER (1)");
       //makeFuture();
     } else {
       console.log("ERROR");
       //makePresent();
     }
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
