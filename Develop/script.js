@@ -42,6 +42,8 @@ const hourDivs = [
 // til it hits the jquery call at the bottom of the html
 $(function () {
 
+  setText();
+
   // BUTTON ONCLICKS
   //$(".saveBtn").click(function () {
     // function runs on clicking the save button
@@ -53,41 +55,17 @@ $(function () {
   //  }
   //});
 
+  $("#hour-9").children(".saveBtn").click(function () {
+    // grab the text
+    let eventText = $(this).siblings("textarea").val();
 
-  $(".saveBtn").click(function () {
-    // get the text
-    var text = $(this).siblings("textarea").val();
+    // puts the item in localStorage
+    localStorage.setItem("event9", eventText);
 
-    // sets the item in localStorage
-    localStorage.setItem("test", text);
-
-    // alert the value to check if we got it
-    console.log(localStorage.getItem("test"));
+    // test
+    console.log(localStorage.getItem("event9"));
   });
 
-
-  //let userinit = ["initials:"];
-  //let userscore = ["scores:"];
-  //let hasScores = false;
-
-  //function saveBtnFunct() {
-  //  // grab initials
-  //  let playerInitials = document.getElementById("initials")[0].value;
-  //
-  //  // adds initials and score to arrays
-  //  userinit.push(playerInitials);
-  //  userscore.push(finalScore);
-  //
-  //  // translate to string and add to local storage
-  //  localStorage.setItem("userinit", JSON.stringify(userinit));
-  //  localStorage.setItem("userscore", JSON.stringify(userscore));
-  //
-  //  // tell the prgrm we have data now
-  //  hasScores = true;
-  //
-  //  // move to high score page
-  //  pagehsSwitch();
-  //}
 
 
 
@@ -151,36 +129,10 @@ $(function () {
   // attribute of each time-block be used to do this?
 
 
-
-  //let scoreSpan = document.getElementById("scorespan");
-  //function displayScores() {
-  //  // resetting scoreboard
-  //  scoreSpan.innerText = "";
-  //
-  //  // pull data from local storage
-  //  var grabinit = localStorage.getItem("userinit");
-  //  var grabscore = localStorage.getItem("userscore");
-  //
-  //  // parse it back into an array from a string
-  //  var parseinit = JSON.parse(grabinit);
-  //  var parsescore = JSON.parse(grabscore);
-  //
-  //  // if we have no data, don't run this code
-  //  if (hasScores === false) { } else {
-  //    // for loop modified from stack overflow link in readme.
-  //    for (let i = 1; i < parseinit.length; i++) {
-  //      // starting at one; running as long as i < the number of values in the array; increasing by one each time the code is executed
-  //      let storedScores = document.createElement("p"); // ss creates a paragraph element
-  //      storedScores.innerText = ([i] + ". " + parseinit[i] + " - " + parsescore[i]);
-  //      // text in the p element = "i. initials - score" for each iteration.
-  //      scoreSpan.appendChild(storedScores); // attaches ss to the scorespan id in the html
-  //    }
-  //  }
-  //
-  //}
-
-
-
+  // localStorage value sets text in box
+  function setText () {
+    $("#hour-9").children("textarea").val(localStorage.getItem("event9"));
+  }
 
 
   // displays the current day at the top of the screen
