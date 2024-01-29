@@ -1,12 +1,4 @@
-// TO DO
-// 5. WHEN I click into a timeblock THEN I can enter an event
-// 6. WHEN I click the save button for that timeblock THEN the text for that event is saved in local storage
-// 7. WHEN I refresh the page THEN the saved events persist
-
-
-
-
-// varries
+// varries :3
 var currentDate = dayjs().format('MMM D, YYYY'); // current date; for displaying at the top of the page
 var currentHour = dayjs().hour(); // current hour; for checking against the timeblocks for formatting purposes
 
@@ -39,15 +31,75 @@ const hourDivs = [
 
 
 
+
 // funct that runs the big code has to be in jquery so the page can't run it
 // til it hits the jquery call at the bottom of the html
 $(function () {
-  // TODO: Add a listener for click events on the save button. This code should
-  // use the id in the containing time-block as a key to save the user input in
-  // local storage. HINT: What does `this` reference in the click listener
-  // function? How can DOM traversal be used to get the "hour-x" id of the
-  // time-block containing the button that was clicked? How might the id be
-  // useful when saving the description in local storage
+
+  setText(); // running the funct to fill the textarea with whatevers saved in the console
+
+  // BUTTON ONCLICKS
+  
+  $("#hour-9").children(".saveBtn").click(function () {
+    // grab the text
+    let eventText = $(this).siblings("textarea").val();
+
+    // puts the item in localStorage
+    localStorage.setItem("event9", eventText);
+
+    // test
+    console.log(localStorage.getItem("event9"));
+  });
+
+  $("#hour-10").children(".saveBtn").click(function () {
+    let eventText = $(this).siblings("textarea").val();
+    localStorage.setItem("event10", eventText);
+    console.log(localStorage.getItem("event10"));
+  });
+
+  $("#hour-11").children(".saveBtn").click(function () {
+    let eventText = $(this).siblings("textarea").val();
+    localStorage.setItem("event11", eventText);
+    console.log(localStorage.getItem("event11"));
+  });
+
+  $("#hour-12").children(".saveBtn").click(function () {
+    let eventText = $(this).siblings("textarea").val();
+    localStorage.setItem("event12", eventText);
+    console.log(localStorage.getItem("event12"));
+  });
+
+  $("#hour-1").children(".saveBtn").click(function () {
+    let eventText = $(this).siblings("textarea").val();
+    localStorage.setItem("event1", eventText);
+    console.log(localStorage.getItem("event1"));
+  });
+
+  $("#hour-2").children(".saveBtn").click(function () {
+    let eventText = $(this).siblings("textarea").val();
+    localStorage.setItem("event2", eventText);
+    console.log(localStorage.getItem("event2"));
+  });
+
+  $("#hour-3").children(".saveBtn").click(function () {
+    let eventText = $(this).siblings("textarea").val();
+    localStorage.setItem("event3", eventText);
+    console.log(localStorage.getItem("event3"));
+  });
+
+  $("#hour-4").children(".saveBtn").click(function () {
+    let eventText = $(this).siblings("textarea").val();
+    localStorage.setItem("event4", eventText);
+    console.log(localStorage.getItem("event4"));
+  });
+
+  $("#hour-5").children(".saveBtn").click(function () {
+    let eventText = $(this).siblings("textarea").val();
+    localStorage.setItem("event5", eventText);
+    console.log(localStorage.getItem("event5"));
+  });
+
+
 
 
 
@@ -94,26 +146,18 @@ $(function () {
 
 
 
-
-
-
-
-
-
-
-  // TODO: Add code to get any user input that was saved in localStorage and set
-  // the values of the corresponding textarea elements. HINT: How can the id
-  // attribute of each time-block be used to do this?
-
-
-
-
-
-
-
-
-
-
+  // localStorage value of each textarea from last save sets text in box
+  function setText () {
+    $("#hour-9").children("textarea").val(localStorage.getItem("event9"));
+    $("#hour-10").children("textarea").val(localStorage.getItem("event10"));
+    $("#hour-11").children("textarea").val(localStorage.getItem("event11"));
+    $("#hour-12").children("textarea").val(localStorage.getItem("event12"));
+    $("#hour-1").children("textarea").val(localStorage.getItem("event1"));
+    $("#hour-2").children("textarea").val(localStorage.getItem("event2"));
+    $("#hour-3").children("textarea").val(localStorage.getItem("event3"));
+    $("#hour-4").children("textarea").val(localStorage.getItem("event4"));
+    $("#hour-5").children("textarea").val(localStorage.getItem("event5"));
+  }
 
 
 
