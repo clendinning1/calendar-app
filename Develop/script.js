@@ -41,24 +41,53 @@ const hourDivs = [
 // funct that runs the big code has to be in jquery so the page can't run it
 // til it hits the jquery call at the bottom of the html
 $(function () {
-  // TODO: 
-  // HINT:
-  //  - How might the id be useful when saving the description in local storage?
 
   // BUTTON ONCLICKS
-
-  $(".saveBtn").click(function () {
+  //$(".saveBtn").click(function () {
     // function runs on clicking the save button
-    for (let i = 0; i < hourDivs.length; i++) {
+  //  for (let i = 0; i < hourDivs.length; i++) {
       // for loop runs through each hour div
 
-      // runs on each parent hourDiv.
       // gets location relative to the saveBtn via "this".
-      $(this).parent(hourDivs[i]).hide();
-    }
+      //$(this).parent(hourDivs[i]).hide();
+  //  }
+  //});
+
+
+  $(".saveBtn").click(function () {
+    // get the text
+    var text = $(this).siblings("textarea").val();
+
+    // sets the item in localStorage
+    localStorage.setItem("test", text);
+
+    // alert the value to check if we got it
+    console.log(localStorage.getItem("test"));
   });
 
 
+  //let userinit = ["initials:"];
+  //let userscore = ["scores:"];
+  //let hasScores = false;
+
+  //function saveBtnFunct() {
+  //  // grab initials
+  //  let playerInitials = document.getElementById("initials")[0].value;
+  //
+  //  // adds initials and score to arrays
+  //  userinit.push(playerInitials);
+  //  userscore.push(finalScore);
+  //
+  //  // translate to string and add to local storage
+  //  localStorage.setItem("userinit", JSON.stringify(userinit));
+  //  localStorage.setItem("userscore", JSON.stringify(userscore));
+  //
+  //  // tell the prgrm we have data now
+  //  hasScores = true;
+  //
+  //  // move to high score page
+  //  pagehsSwitch();
+  //}
 
 
 
@@ -117,26 +146,38 @@ $(function () {
 
 
 
-
-
-
-
-
-
-
   // TODO: Add code to get any user input that was saved in localStorage and set
   // the values of the corresponding textarea elements. HINT: How can the id
   // attribute of each time-block be used to do this?
 
 
 
-
-
-
-
-
-
-
+  //let scoreSpan = document.getElementById("scorespan");
+  //function displayScores() {
+  //  // resetting scoreboard
+  //  scoreSpan.innerText = "";
+  //
+  //  // pull data from local storage
+  //  var grabinit = localStorage.getItem("userinit");
+  //  var grabscore = localStorage.getItem("userscore");
+  //
+  //  // parse it back into an array from a string
+  //  var parseinit = JSON.parse(grabinit);
+  //  var parsescore = JSON.parse(grabscore);
+  //
+  //  // if we have no data, don't run this code
+  //  if (hasScores === false) { } else {
+  //    // for loop modified from stack overflow link in readme.
+  //    for (let i = 1; i < parseinit.length; i++) {
+  //      // starting at one; running as long as i < the number of values in the array; increasing by one each time the code is executed
+  //      let storedScores = document.createElement("p"); // ss creates a paragraph element
+  //      storedScores.innerText = ([i] + ". " + parseinit[i] + " - " + parsescore[i]);
+  //      // text in the p element = "i. initials - score" for each iteration.
+  //      scoreSpan.appendChild(storedScores); // attaches ss to the scorespan id in the html
+  //    }
+  //  }
+  //
+  //}
 
 
 
